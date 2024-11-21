@@ -1,10 +1,12 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 import 'package:ticket_app/base/res/utils/app_json.dart';
+import 'package:ticket_app/screens/home/widgets/hotel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,6 +22,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,11 +30,11 @@ class HomeScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Good morning", style: AppStyles.headLineStyle3),
+                        Text("Good morning,", style: AppStyles.headLineStyle3),
                         const SizedBox(
                           height: 5,
                         ),
-                        Text('Book Tickets', style: AppStyles.headLineStyle1),
+                        Text('Samuel', style: AppStyles.headLineStyle1),
                       ],
                     ),
                     Container(
@@ -64,9 +67,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const AppDoubleText(
+                AppDoubleText(
                   bigText: 'Upcoming Flights',
                   smallText: 'View all',
+                  func: () => Navigator.pushNamed(context, '/all_tickets'),
                 ),
                 const SizedBox(height: 20),
                 SingleChildScrollView(
@@ -78,6 +82,26 @@ class HomeScreen extends StatelessWidget {
                         .toList(),
                   ),
                 ), //To make 'Row' widget scrollable, you need to put inside -
+                const SizedBox(height: 40),
+                AppDoubleText(
+                  bigText: 'Hotels',
+                  smallText: 'View all',
+                  func: () {
+                    if (kDebugMode) {
+                      print("I'm still working");
+                    }
+                  },
+                ),
+                const SizedBox(height: 20),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: hotelList
+                        .take(2)
+                        .map((singleHotel) => Hotel(hotel: singleHotel))
+                        .toList(),
+                  ),
+                )
               ],
             ),
           ),

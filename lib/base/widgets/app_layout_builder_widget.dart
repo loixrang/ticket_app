@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
 class AppLayoutBuilderWidget extends StatelessWidget {
   final int randomDivider;
   final double width;
