@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
-import 'package:ticket_app/base/res/utils/app_json.dart';
 
 class Hotel extends StatelessWidget {
   final Map<String, dynamic> hotel;
