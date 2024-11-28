@@ -123,8 +123,13 @@ class TicketScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 5,),
-                        Text('Payment Method', style: AppStyles.headLineStyle4,)
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Payment Method',
+                          style: AppStyles.headLineStyle4,
+                        )
                       ],
                     ),
                     const AppColumnTextLayout(
@@ -136,6 +141,21 @@ class TicketScreen extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+          ),
+          //bottom of the ticket detail section
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 15),
+            decoration: BoxDecoration(
+              color: AppStyles.ticketColor,
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(21),
+                  bottomLeft: Radius.circular(21)),
+            ),
+            child: Container(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
           )
         ],
