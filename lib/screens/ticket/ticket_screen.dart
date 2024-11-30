@@ -17,13 +17,15 @@ class TicketScreen extends StatefulWidget {
 }
 
 class _TicketScreenState extends State<TicketScreen> {
-  late int ticketIndex;
+  late int ticketIndex = 0;
 
   @override
   void didChangeDependencies() {
-    var args = ModalRoute.of(context)!.settings.arguments as Map;
-    ticketIndex = args["index"];
-    super.didChangeDependencies();
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      var args = ModalRoute.of(context)!.settings.arguments as Map;
+      ticketIndex = args["index"];
+      super.didChangeDependencies();
+    }
   }
 
   @override
@@ -39,13 +41,6 @@ class _TicketScreenState extends State<TicketScreen> {
           ListView(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             children: [
-              /*Text(
-                'Tickets',
-                style: AppStyles.headLineStyle1,
-              ),
-              const SizedBox(
-                height: 20,
-              ),*/
               const AppTicketTabs(
                 firstTab: 'Upcoming',
                 secondTab: 'Previous',
