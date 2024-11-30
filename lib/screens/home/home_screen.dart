@@ -1,6 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/app_routes.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
@@ -70,7 +70,8 @@ class HomeScreen extends StatelessWidget {
                 AppDoubleText(
                   bigText: 'Upcoming Flights',
                   smallText: 'View all',
-                  func: () => Navigator.pushNamed(context, '/all_tickets'),
+                  func: () =>
+                      Navigator.pushNamed(context, AppRoutes.allTickets),
                 ),
                 const SizedBox(height: 20),
                 SingleChildScrollView(
@@ -87,9 +88,8 @@ class HomeScreen extends StatelessWidget {
                   bigText: 'Hotels',
                   smallText: 'View all',
                   func: () {
-                    if (kDebugMode) {
-                      print("I'm still working");
-                    }
+                    Navigator.pushNamed(context, AppRoutes.allHotels);
+                    print('Im working');
                   },
                 ),
                 const SizedBox(height: 20),

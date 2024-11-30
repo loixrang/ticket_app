@@ -22,7 +22,6 @@ class _TicketScreenState extends State<TicketScreen> {
   @override
   void didChangeDependencies() {
     var args = ModalRoute.of(context)!.settings.arguments as Map;
-    print("Passed index ${args["index"]}");
     ticketIndex = args["index"];
     super.didChangeDependencies();
   }
