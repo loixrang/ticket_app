@@ -14,7 +14,6 @@ class TicketPromotion extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           width: size.width * .42,
-          height: 435,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
@@ -25,7 +24,7 @@ class TicketPromotion extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 190,
+                height: 160,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     image: const DecorationImage(
@@ -105,7 +104,7 @@ class TicketPromotion extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Take love',
+                    'Christ is King!',
                     style:
                         AppStyles.headLineStyle2.copyWith(color: Colors.white),
                   ),
@@ -113,15 +112,15 @@ class TicketPromotion extends StatelessWidget {
                     text: const TextSpan(
                       children: [
                         TextSpan(
-                          text: '😍',
+                          text: '😉',
                           style: TextStyle(fontSize: 40),
                         ),
                         TextSpan(
-                          text: '🥰',
+                          text: '🗿',
                           style: TextStyle(fontSize: 50),
                         ),
                         TextSpan(
-                          text: '😘',
+                          text: '🎤',
                           style: TextStyle(fontSize: 40),
                         ),
                       ],

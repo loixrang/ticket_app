@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/utils/app_json.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
@@ -16,9 +17,23 @@ class AllTickets extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: ticketList
-                  .map((singleTicket) => Container(
-                      margin: const EdgeInsets.only(bottom: 20),
-                      child: TicketView(ticket: singleTicket, wholeScreen: true,)))
+                  .map(
+                    (singleTicket) => GestureDetector(
+                      onTap: () {
+                        var index = ticketList.indexOf(singleTicket);
+                        if (kDebugMode) {
+                          print('I am Tapped on the ticket $index');
+                        }
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: TicketView(
+                          ticket: singleTicket,
+                          wholeScreen: true,
+                        ),
+                      ),
+                    ),
+                  )
                   .toList(),
             ),
           )
