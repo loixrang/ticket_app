@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/app_routes.dart';
 import 'package:ticket_app/base/res/utils/app_json.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 
@@ -24,6 +25,8 @@ class AllTickets extends StatelessWidget {
                         if (kDebugMode) {
                           print('I am Tapped on the ticket $index');
                         }
+                        Navigator.pushNamed(context, AppRoutes.ticketScreen,
+                            arguments: {"index": index});
                       },
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 20),
