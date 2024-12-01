@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/app_routes.dart';
 import 'package:ticket_app/base/res/utils/app_json.dart';
@@ -22,9 +21,7 @@ class AllTickets extends StatelessWidget {
                     (singleTicket) => GestureDetector(
                       onTap: () {
                         var index = ticketList.indexOf(singleTicket);
-                        if (kDebugMode) {
-                          print('I am Tapped on the ticket $index');
-                        }
+                        print('I am Tapped on the ticket $index');
                         Navigator.pushNamed(context, AppRoutes.ticketScreen,
                             arguments: {"index": index});
                       },

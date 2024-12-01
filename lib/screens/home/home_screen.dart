@@ -41,10 +41,12 @@ class HomeScreen extends StatelessWidget {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                              image: AssetImage(AppMedia.logo))),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(
+                          image: AssetImage(AppMedia.logo),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -79,7 +81,20 @@ class HomeScreen extends StatelessWidget {
                   child: Row(
                     children: ticketList
                         .take(2)
-                        .map((singleTicket) => TicketView(ticket: singleTicket))
+                        .map(
+                          (singleTicket) => GestureDetector(
+                            onTap: () {
+                              var index = ticketList.indexOf(singleTicket);
+                              print('I am Tapped on the ticket $index');
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.ticketScreen,
+                                arguments: {"index": index},
+                              );
+                            },
+                            child: TicketView(ticket: singleTicket),
+                          ),
+                        )
                         .toList(),
                   ),
                 ), //To make 'Row' widget scrollable, you need to put inside -
