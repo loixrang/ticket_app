@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
-import 'package:ticket_app/base/res/utils/app_json.dart';
+import 'package:ticket_app/base/res/utils/all_json.dart';
+import 'package:ticket_app/base/res/utils/app_routes.dart';
 
 class AllHotels extends StatelessWidget {
   const AllHotels({super.key});
@@ -42,60 +43,65 @@ class HotelGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      height: 350,
-      margin: const EdgeInsets.only(right: 8),
-      decoration: BoxDecoration(
-          color: AppStyles.primaryColor,
-          borderRadius: BorderRadius.circular(18)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AspectRatio(
-            aspectRatio: 1.2,
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppStyles.primaryColor,
-                borderRadius: BorderRadius.circular(12),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage("assets/images/${hotel["image"]}"),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, AppRoutes.hotelDetail);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        height: 350,
+        margin: const EdgeInsets.only(right: 8),
+        decoration: BoxDecoration(
+            color: AppStyles.primaryColor,
+            borderRadius: BorderRadius.circular(18)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AspectRatio(
+              aspectRatio: 1.2,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppStyles.primaryColor,
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/${hotel["image"]}"),
+                  ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              hotel['place'],
-              style:
-                  AppStyles.headLineStyle3.copyWith(color: AppStyles.kakiColor),
+            const SizedBox(
+              height: 5,
             ),
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Text(
-                  hotel['destination'],
-                  style: AppStyles.headLineStyle3.copyWith(color: Colors.white),
-                ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Text(
+                hotel['place'],
+                style:
+                    AppStyles.headLineStyle3.copyWith(color: AppStyles.kakiColor),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Text(
-                  '\$${hotel['price']}/night',
-                  style: AppStyles.headLineStyle4
-                      .copyWith(color: AppStyles.kakiColor),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Text(
+                    hotel['destination'],
+                    style: AppStyles.headLineStyle3.copyWith(color: Colors.white),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Text(
+                    '\$${hotel['price']}/night',
+                    style: AppStyles.headLineStyle4
+                        .copyWith(color: AppStyles.kakiColor),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

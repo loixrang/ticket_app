@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/app_routes.dart';
-import 'package:ticket_app/base/res/utils/app_json.dart';
+import 'package:ticket_app/base/res/utils/app_routes.dart';
+import 'package:ticket_app/base/res/utils/all_json.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 
 class AllTickets extends StatelessWidget {

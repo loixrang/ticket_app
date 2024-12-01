@@ -2,7 +2,7 @@ import 'package:barcode_widgets/barcode_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
-import 'package:ticket_app/base/res/utils/app_json.dart';
+import 'package:ticket_app/base/res/utils/all_json.dart';
 import 'package:ticket_app/base/widgets/app_column_text_layout.dart';
 import 'package:ticket_app/base/widgets/app_layout_builder_widget.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
