@@ -16,11 +16,14 @@ void main() {
     // Bottom navigation bar is present.
     expect(find.byType(BottomNavigationBar), findsOneWidget);
 
-    // All four tabs are labeled correctly.
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Search'), findsOneWidget);
-    expect(find.text('Tickets'), findsOneWidget);
-    expect(find.text('Profile'), findsOneWidget);
+    // All four tabs are labeled correctly (scoped to the nav bar so this
+    // doesn't collide with the "Search" text in the home screen's search box).
+    for (final label in ['Home', 'Search', 'Tickets', 'Profile']) {
+      expect(
+        find.descendant(of: find.byType(BottomNavigationBar), matching: find.text(label)),
+        findsOneWidget,
+      );
+    }
 
     // Home tab is selected by default (index 0).
     final navBar = tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
@@ -31,7 +34,10 @@ void main() {
     await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Tickets'));
+    await tester.tap(find.descendant(
+      of: find.byType(BottomNavigationBar),
+      matching: find.text('Tickets'),
+    ));
     await tester.pumpAndSettle();
 
     final navBar = tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
